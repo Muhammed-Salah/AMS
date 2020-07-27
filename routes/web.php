@@ -28,7 +28,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('admin')->group(function () {
     //Dashboard route
     Route::get('/', 'AdminController@index')->name('admin.dashboard');
-    //Logon routes
+    //Login routes
     Route::get('/login','Auth\AdminLoginController@showLoginForm')->name('admin.login');
     Route::post('/login','Auth\AdminLoginController@login')->name('admin.login.submit');
 
