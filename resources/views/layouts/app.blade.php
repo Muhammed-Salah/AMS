@@ -51,6 +51,14 @@
                                     <a class="nav-link" href="{{ route('admin.register') }}">{{ __('Admin Register') }}</a>
                                 </li>
                             @endif
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('faculty.login') }}">{{ __('Faculty Login') }}</a>
+                            </li>
+                            @if (Route::has('faculty.register'))
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{ route('faculty.register') }}">{{ __('Faculty Register') }}</a>
+                                </li>
+                            @endif
                         @else
                             <li class="nav-item dropdown">
                                 <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -66,6 +74,18 @@
                                         </a>
 
                                         <form id="admin-logout-form" action="{{ route('admin.logout') }}" method="POST" style="display: none;">
+                                            @csrf
+                                        </form>
+                                    </div>
+                                @elseif(\Illuminate\Support\Facades\Auth::guard('faculty')->check())
+                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('faculty.logout') }}"
+                                            onclick="event.preventDefault();
+                                                     document.getElementById('faculty-logout-form').submit();">
+                                            {{ __('Logout') }}
+                                        </a>
+
+                                        <form id="faculty-logout-form" action="{{ route('faculty.logout') }}" method="POST" style="display: none;">
                                             @csrf
                                         </form>
                                     </div>

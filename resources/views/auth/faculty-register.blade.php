@@ -1,14 +1,14 @@
-@extends('layouts.admin-app')
+@extends('layouts.faculty-app')
 
 @section('content')
 <div class="container" style="margin-top: 79px">
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header bg-primary text-light">{{ __('Student Register') }}</div>
+                <div class="card-header bg-primary text-light">{{ __('Faculty Register') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('faculty.register.submit') }}">
                         @csrf
 
                         <div class="form-group row">
