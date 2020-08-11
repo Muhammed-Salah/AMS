@@ -21,7 +21,7 @@
                         <div class="col-md-12 mt-3">
                                 <div class="border border-dark p-2 mb-2 d-flex justify-content-between">
                                     <div>
-                                        <span class="lead">{{'Roll no'}}</span>
+                                        <span class="lead">{{'Staff Id'}}</span>
                                     </div>
                                     <div>
                                         <span class="lead">{{'Name'}}</span>

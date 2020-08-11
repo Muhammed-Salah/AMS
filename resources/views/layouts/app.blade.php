@@ -67,6 +67,14 @@
 
                                 @if(\Illuminate\Support\Facades\Auth::guard('admin')->check())
                                     <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                                        <a class="dropdown-item" href="{{ route('admin.dashboard') }}">
+                                            {{__('Admin dashboard')}}
+                                        </a>
+
+                                        <a class="dropdown-item" href="{{ route('admin.password.change') }}">
+                                            {{__('Change password')}}
+                                        </a>
+
                                         <a class="dropdown-item" href="{{ route('admin.logout') }}"
                                            onclick="event.preventDefault();
                                                          document.getElementById('admin-logout-form').submit();">
@@ -103,6 +111,13 @@
                                     </div>
                                 @endif
                             </li>
+{{--                            <li>--}}
+{{--                                @if(\Illuminate\Support\Facades\Auth::guard('admin')->check())--}}
+{{--                                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">--}}
+{{--                                        <a class="dropdown-item" href="{{ route('admin.password.change') }}">{{__('Change password')}}</a>--}}
+{{--                                    </div>--}}
+{{--                                @endif--}}
+{{--                            </li>--}}
                         @endguest
                     </ul>
                 </div>

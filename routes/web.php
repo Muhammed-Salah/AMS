@@ -52,7 +52,8 @@ Route::prefix('admin')->group(function () {
     Route::post('/delete/{id}', 'AdminController@FacultyDelete')->name('faculty.delete');
 
     //Change password
-
+    Route::get('/change/password', 'Auth\AdminChangePasswordController@index')->name('admin.password.change');
+    Route::post('/change/password', 'Auth\AdminChangePasswordController@store')->name('admin.password.edit');
 });
 
 Route::prefix('faculty')->group(function () {
