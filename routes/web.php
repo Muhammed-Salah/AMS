@@ -45,6 +45,14 @@ Route::prefix('admin')->group(function () {
     Route::post('/password/email','Auth\AdminForgotPasswordController@SendResetLinkEmail')->name('admin.password.email');
     Route::get('/password/reset/{token}','Auth\AdminResetPasswordController@showResetForm')->name('admin.password.reset');
     Route::post('/password/reset','Auth\AdminResetPasswordController@reset')->name('admin.password.update');
+
+    //Edit faculty
+    Route::get('/update/{id}', 'AdminController@FacultyUpdate')->name('faculty.update');
+    Route::post('/edit/{id}', 'AdminController@FacultyEdit')->name('faculty.edit');
+    Route::post('/delete/{id}', 'AdminController@FacultyDelete')->name('faculty.delete');
+
+    //Change password
+
 });
 
 Route::prefix('faculty')->group(function () {
@@ -67,4 +75,21 @@ Route::prefix('faculty')->group(function () {
     Route::post('/password/email','Auth\FacultyForgotPasswordController@SendResetLinkEmail')->name('faculty.password.email');
     Route::get('/password/reset/{token}','Auth\FacultyResetPasswordController@showResetForm')->name('faculty.password.reset');
     Route::post('/password/reset','Auth\FacultyResetPasswordController@reset')->name('faculty.password.update');
+
+    //Edit faculty
+    Route::get('/update/{id}', 'FacultyController@StudentUpdate')->name('student.update');
+    Route::post('/edit/{id}', 'FacultyController@StudentEdit')->name('student.edit');
+    Route::post('/delete/{id}', 'FacultyController@StudentDelete')->name('student.delete');
 });
+
+
+//// adminController for student
+//Route::get('/student', 'facultyController@students')->name('faculty.students');
+//Route::get('/student/add', 'facultyController@studentAdd')->name('faculty.student.add');
+//Route::post('/student/add', 'facultyController@studentAdded')->name('faculty.student.add');
+//Route::get('/student/details/{id}', 'facultyController@studentDetails')->name('faculty.student.details');
+//Route::get('/student/edit/{id}', 'facultyController@studentEdit')->name('faculty.student.edit');
+//Route::post('/student/update/{id}', 'facultyController@studentUpdate')->name('faculty.student.update');
+//Route::delete('/student/delete/{id}', 'facultyController@studentDelete')->name('faculty.student.delete');
+//
+//Route::get('/student/cal', 'facultyController@studentCal')->name('faculty.student.cal');

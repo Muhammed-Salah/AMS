@@ -26,6 +26,22 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Class') }}</label>
+
+                            <div class="col-md-6">
+                                <label><input type="radio" id="class" type="text" name="class" value="8">8th</label>
+                                <label><input type="radio" id="class" type="text" name="class" value="9">9th</label>
+                                <label><input type="radio" id="class" type="text" name="class" value="10">10th</label>
+                                @error('class')
+                                <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+
+                        </div>
+
+                        <div class="form-group row">
                             <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
 
                             <div class="col-md-6">

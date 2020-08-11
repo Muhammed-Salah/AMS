@@ -39,6 +39,11 @@ class FacultyLoginController extends Controller
     public function logout(Request $request)
     {
         Auth::guard('faculty')->logout();
+
+        $request->session()->flush();
+
+        $request->session()->regenerate();
+
         return redirect('/');
     }
 }

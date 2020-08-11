@@ -12,7 +12,7 @@ class FacultyRegisterController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('guest:faculty');
+        $this->middleware('auth:admin');
     }
 
     public function showRegisterForm()
@@ -38,9 +38,8 @@ class FacultyRegisterController extends Controller
                 'password' =>Hash::make($request->password),
             ]);
 
-            //log the faculty in
-            Auth::guard('faculty')->loginUsingId($faculty->id);
-            return redirect()->route('faculty.dashboard');
+
+            return redirect()->route('admin.dashboard');
         } catch (\Exception $e)
             {
                 return redirect()->withInput($request->only('name','email'));
